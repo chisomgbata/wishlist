@@ -33,7 +33,7 @@ If you prefer Postman you can import the Postman collection at [postman.json](ht
 
 1. **Clone the Repository:**
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/chisomgbata/wishlist
    cd wishlist-app
    ```
 
