@@ -23,11 +23,11 @@ with Laravel and follows RESTful principles.
 
 ## Setup Instructions
 
-You can setup the project locally or use a hosted version at `wishlist.chisom.shop`
+You can setup the project locally or use a hosted version at [wishlist.chisom.shop](https://wishlist.chisom.shop)
 
-You can also use a visual api documentation `wishlist.chisom.shop/docs/api`
+You can also use a visual API documentation at [wishlist.chisom.shop/docs/api](https://wishlist.chisom.shop/docs/api)
 
-The Open API spec is also available at `wishlist.chisom.shop/docs/api.json`
+The Open API spec is also available at [wishlist.chisom.shop/docs/api.json](https://wishlist.chisom.shop/docs/api.json)
 
 If you prefer Postman you can import the Postman collection at [postman.json](http://wishlist.chisom.shop/postman.json)
 
