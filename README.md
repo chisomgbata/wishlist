@@ -23,6 +23,8 @@ with Laravel and follows RESTful principles.
 
 ## Setup Instructions
 
+You can setup the project locally or use a hosted version at `wishlist.chisom.shop`
+
 1. **Clone the Repository:**
    ```bash
    git clone <your-repository-url>
@@ -40,7 +42,7 @@ with Laravel and follows RESTful principles.
         cp .env.example .env
         ```
     * Open the `.env` file and configure your database connection details (`DB_CONNECTION`, `DB_HOST`, `DB_PORT`,
-      `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
+      `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) or you can leave it as is to use SQLite.
     * Ensure `APP_URL` is set correctly (e.g., `http://localhost:8000` if using `php artisan serve`).
 
 4. **Generate Application Key:**
@@ -55,12 +57,9 @@ with Laravel and follows RESTful principles.
    ```
 
 6. **Seed the Database (Optional but Recommended):**
-   This command will populate the `products` table with sample data if you have a `ProductSeeder` and it's called from
-   `DatabaseSeeder.php`.
+   This command will populate the `products` table with sample data.
    ```bash
    php artisan migrate --seed
-   # Or, if you want to run only specific seeders:
-   # php artisan db:seed --class=ProductSeeder
    ```
 
 7. **Start the Development Server:**
@@ -71,6 +70,7 @@ with Laravel and follows RESTful principles.
 
 ## API Endpoint Documentation
 
+There is a Postman Collection available at [postman.json](postman.json) for testing the API endpoints.
 All API endpoints are prefixed with `/api/v1`.
 All responses are in JSON format.
 Successful responses for creating resources will typically return a `201 Created` status.
@@ -103,18 +103,18 @@ status.
     * `email` (string, required, email, unique): User's email address.
     * `password` (string, required, min:8, confirmed): User's password.
     * `password_confirmation` (string, required): Confirmation of the password.
-* **Success Response (201 Created):**
-    ```json
-    {
-        "message": "User registered successfully.",
-        "user": {
-            "id": 1,
-            "name": "John Doe",
-            "email": "john.doe@example.com"
-            // Other fields from UserResource
+    * **Success Response (201 Created):**
+        ```json
+        {
+            "message": "User registered successfully.",
+            "user": {
+                "id": 1,
+                "name": "John Doe",
+                "email": "john.doe@example.com",
+                "created_at": "2025-05-09T10:58:18.000000Z" 
+             }
         }
-    }
-    ```
+        ```
 * **Error Responses:**
     * **422 Unprocessable Entity:** If validation fails (e.g., email already taken, password too short, passwords don't
       match).
@@ -152,8 +152,8 @@ status.
         "user": {
             "id": 1,
             "name": "John Doe",
-            "email": "john.doe@example.com"
-            // Other fields from UserResource
+            "email": "john.doe@example.com",
+            "created_at": "2025-05-09T10:58:18.000000Z"
         },
         "token": "your_api_token_here"
     }
@@ -190,8 +190,9 @@ status.
         "user": {
             "id": 1,
             "name": "John Doe",
-            "email": "john.doe@example.com"
-            // Other fields from UserResource
+            "email": "john.doe@example.com",
+            "created_at": "2025-05-09T10:58:18.000000Z"
+
         }
     }
     ```
@@ -233,7 +234,7 @@ status.
                 "id": 1,
                 "name": "Awesome T-Shirt",
                 "description": "A very comfortable and stylish t-shirt.",
-                "price": 1999 // Example: price in cents or smallest unit
+                "price": 1999
             },
             {
                 "id": 2,
@@ -241,7 +242,7 @@ status.
                 "description": "The perfect mug for your morning coffee.",
                 "price": 999
             }
-            // ... more products
+          
         ],
         "links": {
             "first": "http://localhost/api/v1/products?page=1",
@@ -252,11 +253,11 @@ status.
         "meta": {
             "current_page": 1,
             "from": 1,
-            "last_page": ...,
+            "last_page": "...",
             "path": "http://localhost/api/v1/products",
-            "per_page": 15, // Or your configured per_page value
-            "to": 15,
-            "total": ...
+            "per_page": 10, 
+            "to": 10,
+            "total": "..."
         }
     }
     ```
@@ -284,7 +285,7 @@ status.
     * **404 Not Found:** If the product with the specified ID does not exist.
         ```json
         {
-            "message": "No query results for model [App\\Models\\Product] {product_id}" // Or similar Laravel default
+            "message": "No query results for model [App\\Models\\Product] {product_id}"
         }
         ```
 

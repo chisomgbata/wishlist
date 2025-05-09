@@ -13,10 +13,9 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
-            'image' => $this->faker->image(),
-            'price' => $this->faker->randomFloat( 2, 1, 1000),
-            'description' => $this->faker->text(),
+            'name' => $this->faker->colorName() . ' ' . $this->faker->randomElements(['shirt', 'pants', 'shoes', 'hat', 'jacket'])[0],
+            'price' => $this->faker->randomFloat(2, 1, 1000),
+            'description' => $this->faker->realText(),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
