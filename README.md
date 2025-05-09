@@ -34,7 +34,7 @@ If you prefer Postman you can import the Postman collection at [postman.json](ht
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/chisomgbata/wishlist
-   cd wishlist-app
+   cd wishlist
    ```
 
 2. **Install Dependencies:**
@@ -65,7 +65,7 @@ If you prefer Postman you can import the Postman collection at [postman.json](ht
 6. **Seed the Database (Optional but Recommended):**
    This command will populate the `products` table with sample data.
    ```bash
-   php artisan migrate --seed
+   php artisan db:seed
    ```
 
 7. **Start the Development Server:**
