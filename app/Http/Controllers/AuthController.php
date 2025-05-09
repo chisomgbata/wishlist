@@ -6,9 +6,16 @@ use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Resources\UserResource;
 use App\Services\AuthService;
+use Illuminate\Http\JsonResponse;
 
 class AuthController extends Controller
 {
+    /**
+     * Create a new user.
+     * @param CreateUserRequest $request
+     * @param AuthService $authService
+     * @return JsonResponse
+     */
     public function register(CreateUserRequest $request, AuthService $authService)
     {
         $validatedData = $request->validated();
@@ -23,6 +30,11 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * Authenticate a user
+     * @param LoginUserRequest $request
+     * @return JsonResponse
+     */
     public function login(LoginUserRequest $request)
     {
         $validatedData = $request->validated();
@@ -43,6 +55,10 @@ class AuthController extends Controller
         ], 401);
     }
 
+    /**
+     * Retrieve logged in User
+     * @return JsonResponse
+     */
     public function user()
     {
         return response()->json([
@@ -50,6 +66,10 @@ class AuthController extends Controller
         ], 200);
     }
 
+    /**
+     * Logout an un-authenticated User
+     * @return JsonResponse
+     */
     public function logout()
     {
         auth()->user()->tokens()->delete();

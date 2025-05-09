@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddToWishlistRequest;
 use App\Http\Resources\ProductResource;
 use Auth;
+use Illuminate\Http\JsonResponse;
 
 class WishlistController extends Controller
 {
 
+    /**
+     * Display a listing of the products in the user's wishlist.
+     */
     public function index()
     {
         $user = Auth::user();
@@ -19,6 +23,11 @@ class WishlistController extends Controller
         return ProductResource::collection($wishlistItems);
     }
 
+    /**
+     * Add a product to the user's wishlist.
+     * @param AddToWishlistRequest $request
+     * @return JsonResponse
+     */
     public function store(AddToWishlistRequest $request)
     {
         // All the validation is done in the form request class
@@ -35,7 +44,12 @@ class WishlistController extends Controller
         ], 201);
     }
 
-    public function destroy($productId)
+    /**
+     * Remove a product from the user's wishlist.
+     * @param int $productId
+     * @return JsonResponse
+     */
+    public function destroy(int $productId)
     {
         $user = Auth::user();
 
