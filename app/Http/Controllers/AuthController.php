@@ -15,6 +15,7 @@ class AuthController extends Controller
      * @param CreateUserRequest $request
      * @param AuthService $authService
      * @return JsonResponse
+     * @unauthenticated // this is required by the scramble package to show unauthenticated routes
      */
     public function register(CreateUserRequest $request, AuthService $authService)
     {
@@ -32,8 +33,10 @@ class AuthController extends Controller
 
     /**
      * Authenticate a user
+     *
      * @param LoginUserRequest $request
      * @return JsonResponse
+     * @unauthenticated // this is required by the scramble package to show unauthenticated routes
      */
     public function login(LoginUserRequest $request)
     {

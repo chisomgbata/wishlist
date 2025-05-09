@@ -23,13 +23,13 @@ with Laravel and follows RESTful principles.
 
 ## Setup Instructions
 
-### You can setup the project locally or use a hosted version at `wishlist.chisom.shop`
+You can setup the project locally or use a hosted version at `wishlist.chisom.shop`
 
-### You can also use a visual api documentation `wishlist.chisom.shop/docs/api`
+You can also use a visual api documentation `wishlist.chisom.shop/docs/api`
 
-### The Open API spec is also available at `wishlist.chisom.shop/docs/api.json`
+The Open API spec is also available at `wishlist.chisom.shop/docs/api.json`
 
-### If you prefer Postman you can import the Postman collection at [postman.json](http://wishlist.chisom.shop/postman.json)
+If you prefer Postman you can import the Postman collection at [postman.json](http://wishlist.chisom.shop/postman.json)
 
 1. **Clone the Repository:**
    ```bash
@@ -77,10 +77,15 @@ with Laravel and follows RESTful principles.
 ## API Endpoint Documentation
 
 There is a Postman Collection available at [postman.json](public/postman.json) for testing the API endpoints.
+
 All API endpoints are prefixed with `/api/v1`.
+
 All responses are in JSON format.
+
 Successful responses for creating resources will typically return a `201 Created` status.
+
 Successful responses for fetching resources will typically return a `200 OK` status.
+
 Successful responses for deleting resources will typically return a `200 OK` status with a message or a `204 No Content`
 status.
 

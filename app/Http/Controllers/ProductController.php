@@ -9,6 +9,7 @@ class ProductController extends Controller
 {
     /**
      * Return Paginated Products
+     * @unauthenticated // this is required by the scramble package to show unauthenticated routes
      */
     public function index()
     {
@@ -20,6 +21,7 @@ class ProductController extends Controller
      *
      * @param Product $product
      * @return ProductResource
+     * @unauthenticated // this is required by the scramble package to show unauthenticated routes
      */
     public function show(Product $product)
     {
